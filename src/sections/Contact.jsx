@@ -20,7 +20,7 @@ const Contact = () => {
           LET'S BUILD
         </h2>
         <p className="body" style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          Got an idea? Fill in the form or reach out directly.
+          Describe your project below — I'll respond within 24 hours with a clear scope and timeline.
         </p>
 
         {formSent ? (

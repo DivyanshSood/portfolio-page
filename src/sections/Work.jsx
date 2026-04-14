@@ -6,9 +6,9 @@ const Work = () => (
   <div className="section-content">
     <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
       <p className="label" style={{ justifyContent: 'center', color: 'var(--neon-orange)' }}>shipped</p>
-      <h2 className="heading">Real Projects. Real Stakes.</h2>
+      <h2 className="heading">Work That Shipped.</h2>
       <p className="body" style={{ maxWidth: 560, margin: '0.75rem auto 0', opacity: 0.75 }}>
-        Every site below started with a client bleeding attention, trust, or revenue. Here's what we actually rebuilt — and why it mattered.
+        Each project had a specific problem — a broken funnel, an invisible brand, a platform holding growth back. Below is what was built and what changed because of it.
       </p>
     </div>
     <div className="work-grid">

@@ -8,10 +8,10 @@ const WhatYouGet = () => (
       <Globe size={30} style={{ color: 'var(--neon-blue)', flexShrink: 0 }} />
       <div>
         <p className="label" style={{ color: 'var(--neon-blue)' }}>what_you_get</p>
-        <h2 className="heading" style={{ margin: 0 }}>Blazing Fast. Everywhere.</h2>
+        <h2 className="heading" style={{ margin: 0 }}>Speed Is a Business Metric.</h2>
       </div>
     </div>
-    <p className="body-loud">Your site loads in under a second — no matter where your customers are. That means less bounce, more conversions, more revenue.</p>
+    <p className="body-loud">A one-second delay costs 7% in conversions. Every site I ship scores 95+ on Google Lighthouse — deployed on a global CDN so load time doesn't depend on where your visitor is sitting.</p>
     <div style={{ marginTop: '1.5rem' }}>
       {[
         { label: 'Speed', val: '98', color: 'var(--neon-green)' },

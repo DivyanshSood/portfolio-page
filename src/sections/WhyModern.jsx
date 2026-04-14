@@ -8,26 +8,26 @@ const WhyModern = () => (
       <ShieldCheck size={30} style={{ color: 'var(--neon-green)', flexShrink: 0 }} />
       <div>
         <p className="label" style={{ color: 'var(--neon-green)' }}>why_modern</p>
-        <h2 className="heading" style={{ margin: 0 }}>Old Sites Break. Ours Don't.</h2>
+        <h2 className="heading" style={{ margin: 0 }}>What You Build On Matters.</h2>
       </div>
     </div>
     <div className="compare-grid">
       <div className="compare-card bad">
-        <h4 style={{ color: 'var(--neon-red)' }}>Old Way</h4>
+        <h4 style={{ color: 'var(--neon-red)' }}>Legacy Stack</h4>
         <ul>
-          <li>✗ Crashes under traffic</li>
-          <li>✗ Gets hacked easily</li>
-          <li>✗ Slow and clunky</li>
-          <li>✗ Expensive to maintain</li>
+          <li>✗ Collapses under traffic spikes</li>
+          <li>✗ Server exposed to every attack vector</li>
+          <li>✗ Slows down as plugins accumulate</li>
+          <li>✗ Hosting bills scale with visits</li>
         </ul>
       </div>
       <div className="compare-card good">
-        <h4 style={{ color: 'var(--neon-green)' }}>Our Way</h4>
+        <h4 style={{ color: 'var(--neon-green)' }}>Modern Stack</h4>
         <ul>
-          <li>✓ Handles millions of visits</li>
-          <li>✓ Virtually unhackable</li>
-          <li>✓ Lightning fast forever</li>
-          <li>✓ Near-zero running costs</li>
+          <li>✓ Scales to any traffic without config changes</li>
+          <li>✓ Static by default — no server to breach</li>
+          <li>✓ Sub-second load times, permanently</li>
+          <li>✓ Near-zero running costs at any scale</li>
         </ul>
       </div>
     </div>

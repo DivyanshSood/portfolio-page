@@ -14,7 +14,7 @@ const Skills = () => (
       <Code2 size={30} style={{ color: 'var(--neon-cyan)', flexShrink: 0 }} />
       <div>
         <p className="label" style={{ color: 'var(--neon-cyan)' }}>tech_stack</p>
-        <h2 className="heading" style={{ margin: 0 }}>Tools of the Trade</h2>
+        <h2 className="heading" style={{ margin: 0 }}>The Full Stack</h2>
       </div>
     </div>
     <div className="skills-grid">

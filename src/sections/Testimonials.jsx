@@ -20,7 +20,7 @@ const Testimonials = () => (
   <div>
     <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
       <p className="label" style={{ justifyContent: 'center', color: 'var(--neon-pink)' }}>testimonials</p>
-      <h2 className="heading">What Clients Say</h2>
+      <h2 className="heading">In Their Words</h2>
     </div>
     <div className="testimonials-grid">
       {reviews.map((r, i) => (
