@@ -1,6 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ExternalLink, MessageCircle, Mail, Shield, Zap, Code2 } from 'lucide-react';
 import projects from '../data/projects';
+import LiveClock      from '../components/widgets/LiveClock';
+import StatusWidget   from '../components/widgets/StatusWidget';
+import ActivityGraph  from '../components/widgets/ActivityGraph';
+import MetricRing     from '../components/widgets/MetricRing';
+import Sparkline      from '../components/widgets/Sparkline';
 
 /* Real screenshot via microlink */
 const screenshotUrl = (url) =>
@@ -96,14 +101,20 @@ function ProjectCard({ p, index }) {
 
         <p className="pf-story body">{p.story}</p>
 
-        {/* Metrics */}
-        <div className="pf-metrics">
-          {p.metrics.map((m) => (
-            <div key={m.label} className="pf-metric">
-              <div className="pf-metric-value">{m.value}</div>
-              <div className="pf-metric-label">{m.label}</div>
+        {/* Live results dashboard */}
+        <div className="pf-results">
+          <MetricRing pct={p.ring.pct} label={p.ring.label} suffix="%" size={104} />
+          <div className="pf-results-right">
+            <div className="pf-metrics">
+              {p.metrics.map((m) => (
+                <div key={m.label} className="pf-metric">
+                  <div className="pf-metric-value">{m.value}</div>
+                  <div className="pf-metric-label">{m.label}</div>
+                </div>
+              ))}
             </div>
-          ))}
+            <Sparkline points={p.trend.points} label={p.trend.label} width={220} height={38} />
+          </div>
         </div>
 
         {/* Stack */}
@@ -201,12 +212,10 @@ export default function PortfolioPage() {
               Every number below is from a live analytics dashboard — no lorem, no case-study theatre.
             </p>
           </div>
-          <div className="pf-hero-meta">
-            <div className="pf-hero-meta-row"><span>Role</span><strong>Full-stack · solo</strong></div>
-            <div className="pf-hero-meta-row"><span>Stack</span><strong>Next.js · Postgres · Stripe</strong></div>
-            <div className="pf-hero-meta-row"><span>Shipped</span><strong>5 products · 4 sectors</strong></div>
-            <div className="pf-hero-meta-row"><span>Avg. timeline</span><strong>4–9 weeks</strong></div>
-            <div className="pf-hero-meta-row"><span>Based</span><strong>Himachal · remote</strong></div>
+          <div className="pf-hero-dash">
+            <LiveClock />
+            <StatusWidget />
+            <ActivityGraph />
           </div>
         </div>
       </div>

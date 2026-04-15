@@ -994,6 +994,197 @@ body {
 }
 
 /* ═════════════════════════════════════════════════════════════
+   WIDGETS — clocks, graphs, rings, sparklines, status tables
+   ═════════════════════════════════════════════════════════════ */
+.widget {
+  background: var(--surface-raised);
+  border: var(--brut-border);
+  border-radius: 12px;
+  box-shadow: var(--brut-sh-sm);
+  padding: 0.85rem 1rem;
+  color: var(--text);
+}
+.widget-label {
+  font-family: var(--mono); font-size: 0.58rem; font-weight: 800;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.6rem;
+  display: flex; align-items: center; gap: 0.4rem;
+}
+.widget-label::before {
+  content: ""; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--brut-green);
+  box-shadow: 0 0 6px var(--brut-green);
+  animation: pulse 1.8s ease infinite;
+}
+
+/* ── LiveClock ── */
+.clock-body { display: flex; align-items: center; gap: 0.9rem; }
+.clock-face { width: 70px; height: 70px; flex-shrink: 0; color: var(--ink); }
+.clock-ring { fill: var(--surface); stroke: var(--ink); stroke-width: 2; }
+.clock-tick { stroke: var(--text-dim); stroke-width: 1; stroke-linecap: round; }
+.clock-tick.major { stroke: var(--ink); stroke-width: 1.8; }
+.clock-hand { stroke: var(--ink); stroke-linecap: round; }
+.clock-hand.hour { stroke-width: 3; }
+.clock-hand.min  { stroke-width: 2.2; }
+.clock-hand.sec  { stroke: var(--brut-pink); stroke-width: 1.2; }
+.clock-pin       { fill: var(--ink); }
+.clock-digital   { display: flex; flex-direction: column; gap: 2px; }
+.clock-time      { font-family: var(--mono); font-size: 1.15rem; font-weight: 800; color: var(--ink); letter-spacing: 0.02em; line-height: 1; }
+.clock-time .blink { animation: cblink 1s step-end infinite; color: var(--brut-pink); }
+.clock-sec       { font-size: 0.7em; color: var(--text-dim); margin-left: 3px; }
+.clock-zone      { font-family: var(--mono); font-size: 0.58rem; font-weight: 700; letter-spacing: 0.15em; color: var(--text-muted); }
+
+/* ── StatusWidget ── */
+.status-list { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+.status-list li {
+  display: grid; grid-template-columns: 14px 110px 1fr; align-items: center; gap: 0.5rem;
+  font-family: var(--mono); font-size: 0.7rem; line-height: 1.3;
+}
+.stat-pulse { width: 8px; height: 8px; border-radius: 50%; display: block; }
+.stat-pulse.ok   { background: var(--brut-green); box-shadow: 0 0 6px var(--brut-green); animation: pulse 1.8s ease infinite; }
+.stat-pulse.warn { background: var(--brut-yellow); box-shadow: 0 0 6px var(--brut-yellow); }
+.stat-pulse.idle { background: var(--text-muted); }
+.stat-key { color: var(--text-dim); font-weight: 600; letter-spacing: 0.04em; }
+.stat-val { color: var(--ink); font-weight: 700; text-align: right; }
+
+/* ── ActivityGraph ── */
+.graph-svg { width: 100%; height: 80px; color: var(--brut-green); display: block; }
+.graph-grid { stroke: currentColor; stroke-opacity: 0.14; stroke-dasharray: 2 3; }
+.graph-bar  { transition: fill 0.2s; }
+.graph-foot {
+  display: flex; justify-content: space-between;
+  font-family: var(--mono); font-size: 0.6rem; font-weight: 700;
+  color: var(--text-dim); letter-spacing: 0.08em;
+  margin-top: 0.5rem; text-transform: uppercase;
+}
+.graph-peak { color: var(--brut-green); }
+
+/* ── MetricRing ── */
+.widget-ring { position: relative; display: inline-block; flex-shrink: 0; }
+.ring-svg    { width: 100%; height: 100%; display: block; }
+.ring-track  { fill: none; stroke: var(--bg-alt); stroke-width: 7; }
+.ring-fill   { fill: none; stroke: var(--brut-green); stroke-width: 7; stroke-linecap: round; transition: stroke-dashoffset 0.1s linear; filter: drop-shadow(0 0 3px rgba(77,230,161,0.35)); }
+.ring-inner {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  pointer-events: none;
+}
+.ring-val { font-family: var(--display); font-size: 1.25rem; font-weight: 900; color: var(--ink); line-height: 1; letter-spacing: -0.03em; }
+.ring-lbl { font-family: var(--mono); font-size: 0.52rem; font-weight: 700; letter-spacing: 0.18em; color: var(--text-muted); margin-top: 2px; text-transform: uppercase; }
+
+/* ── Sparkline ── */
+.widget-spark   { display: flex; flex-direction: column; gap: 0.25rem; }
+.spark-line     { fill: none; stroke: var(--brut-pink); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.spark-area     { fill: var(--brut-pink); fill-opacity: 0.18; stroke: none; }
+.spark-dot      { fill: var(--brut-pink); }
+.spark-label    { font-family: var(--mono); font-size: 0.58rem; font-weight: 700; color: var(--text-dim); letter-spacing: 0.14em; text-transform: uppercase; }
+
+/* ── Portfolio hero dashboard layout ── */
+.pf-hero-dash {
+  display: grid; grid-template-columns: 1fr; gap: 0.85rem;
+}
+.pf-hero-dash .widget { width: 100%; }
+
+/* ── Per-card results dashboard ── */
+.pf-results {
+  display: grid; grid-template-columns: 104px 1fr; gap: 1rem;
+  align-items: center;
+  padding: 0.9rem 1rem;
+  background: var(--surface);
+  border: var(--brut-border);
+  border-radius: 12px;
+  box-shadow: var(--brut-sh-sm);
+  margin: 0.25rem 0;
+}
+.pf-results-right { display: flex; flex-direction: column; gap: 0.65rem; min-width: 0; }
+.pf-results .pf-metrics { margin: 0; }
+@media (max-width: 520px) {
+  .pf-results { grid-template-columns: 1fr; }
+  .pf-results .widget-ring { margin: 0 auto; }
+}
+
+/* ═════════════════════════════════════════════════════════════
+   WIDGET THEME OVERRIDES — keep identity in each mode
+   ═════════════════════════════════════════════════════════════ */
+
+/* Neomorphism */
+[data-theme="neomorphism"] .widget,
+[data-theme="neomorphism"] .pf-results {
+  background: var(--surface-raised);
+  border: none; box-shadow: var(--brut-sh) !important;
+  border-radius: 16px;
+}
+[data-theme="neomorphism"] .clock-ring { fill: var(--surface); stroke: none; filter: drop-shadow(inset 0 0 0 var(--ink)); }
+[data-theme="neomorphism"] .clock-hand { stroke: var(--ink); }
+[data-theme="neomorphism"] .clock-hand.sec { stroke: var(--brut-orange); }
+[data-theme="neomorphism"] .clock-time .blink { color: var(--brut-orange); }
+[data-theme="neomorphism"] .graph-svg  { color: var(--brut-orange); }
+[data-theme="neomorphism"] .graph-peak { color: var(--brut-orange); }
+[data-theme="neomorphism"] .ring-fill  { stroke: var(--brut-orange); filter: drop-shadow(0 0 3px rgba(255,158,122,0.4)); }
+[data-theme="neomorphism"] .ring-track { stroke: var(--bg-alt); }
+[data-theme="neomorphism"] .spark-line { stroke: var(--brut-orange); }
+[data-theme="neomorphism"] .spark-area { fill: var(--brut-orange); fill-opacity: 0.15; }
+[data-theme="neomorphism"] .spark-dot  { fill: var(--brut-orange); }
+[data-theme="neomorphism"] .widget-label::before { background: var(--brut-orange); box-shadow: 0 0 6px var(--brut-orange); }
+[data-theme="neomorphism"] .stat-pulse.ok   { background: var(--brut-green); box-shadow: 0 0 6px var(--brut-green); }
+[data-theme="neomorphism"] .stat-pulse.warn { background: var(--brut-orange); box-shadow: 0 0 6px var(--brut-orange); }
+
+/* Liquid glass */
+[data-theme="liquid-glass"] .widget,
+[data-theme="liquid-glass"] .pf-results {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.38) 0%, rgba(255,255,255,0.06) 45%, rgba(255,255,255,0.22) 100%),
+    rgba(255,255,255,0.12) !important;
+  backdrop-filter: blur(40px) saturate(1.5);
+  -webkit-backdrop-filter: blur(40px) saturate(1.5);
+  border: var(--brut-border) !important;
+  box-shadow: var(--brut-sh) !important;
+}
+[data-theme="liquid-glass"] .clock-ring { fill: rgba(255,255,255,0.3); stroke: var(--text); stroke-width: 1.2; }
+[data-theme="liquid-glass"] .clock-hand.sec { stroke: var(--brut-pink); }
+[data-theme="liquid-glass"] .graph-svg  { color: var(--brut-purple); }
+[data-theme="liquid-glass"] .ring-fill  { stroke: var(--brut-purple); }
+[data-theme="liquid-glass"] .ring-track { stroke: rgba(255,255,255,0.4); }
+[data-theme="liquid-glass"] .spark-line { stroke: var(--brut-pink); }
+[data-theme="liquid-glass"] .spark-area { fill: var(--brut-pink); fill-opacity: 0.18; }
+[data-theme="liquid-glass"] .spark-dot  { fill: var(--brut-pink); }
+
+/* Futuristic HUD */
+[data-theme="futuristic"] .widget,
+[data-theme="futuristic"] .pf-results {
+  background: var(--surface-raised) !important;
+  border: var(--brut-border) !important;
+  box-shadow: var(--brut-sh-sm) !important;
+  border-radius: 4px;
+  color: var(--text);
+}
+[data-theme="futuristic"] .widget-label { color: var(--brut-green); }
+[data-theme="futuristic"] .widget-label::before { background: var(--brut-green); box-shadow: 0 0 8px var(--brut-green); }
+[data-theme="futuristic"] .clock-ring   { fill: var(--bg); stroke: var(--brut-green); stroke-width: 1; }
+[data-theme="futuristic"] .clock-tick   { stroke: rgba(77,230,161,0.4); }
+[data-theme="futuristic"] .clock-tick.major { stroke: var(--brut-green); }
+[data-theme="futuristic"] .clock-hand   { stroke: var(--brut-green); }
+[data-theme="futuristic"] .clock-hand.sec { stroke: var(--brut-pink); }
+[data-theme="futuristic"] .clock-pin    { fill: var(--brut-green); }
+[data-theme="futuristic"] .clock-time   { color: var(--brut-green); text-shadow: 0 0 8px rgba(77,230,161,0.5); }
+[data-theme="futuristic"] .clock-time .blink { color: var(--brut-pink); }
+[data-theme="futuristic"] .clock-zone   { color: var(--text-dim); }
+[data-theme="futuristic"] .graph-svg    { color: var(--brut-green); }
+[data-theme="futuristic"] .graph-bar    { filter: drop-shadow(0 0 3px rgba(77,230,161,0.35)); }
+[data-theme="futuristic"] .graph-peak   { color: var(--brut-green); }
+[data-theme="futuristic"] .ring-track   { stroke: rgba(77,230,161,0.15); }
+[data-theme="futuristic"] .ring-fill    { stroke: var(--brut-green); filter: drop-shadow(0 0 6px rgba(77,230,161,0.55)); }
+[data-theme="futuristic"] .ring-val     { color: var(--brut-green); text-shadow: 0 0 6px rgba(77,230,161,0.4); }
+[data-theme="futuristic"] .spark-line   { stroke: var(--brut-cyan); }
+[data-theme="futuristic"] .spark-area   { fill: var(--brut-cyan); fill-opacity: 0.15; }
+[data-theme="futuristic"] .spark-dot    { fill: var(--brut-cyan); }
+[data-theme="futuristic"] .stat-key     { color: var(--text-dim); }
+[data-theme="futuristic"] .stat-val     { color: var(--brut-green); }
+[data-theme="futuristic"] .stat-pulse.ok   { background: var(--brut-green); box-shadow: 0 0 8px var(--brut-green); }
+[data-theme="futuristic"] .stat-pulse.warn { background: var(--brut-yellow); box-shadow: 0 0 8px var(--brut-yellow); }
+
+/* ═════════════════════════════════════════════════════════════
    THEME SWITCHER — floating pill, bottom-left
    ═════════════════════════════════════════════════════════════ */
 .theme-switcher {

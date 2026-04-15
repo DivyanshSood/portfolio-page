@@ -15,6 +15,8 @@ const projects = [
       { value: '2×',    label: 'Enquiries / mo' },
       { value: '6s→0.8s', label: 'TTFB' },
     ],
+    ring: { pct: 96, label: 'LIGHTHOUSE' },
+    trend: { points: [34, 41, 52, 63, 71, 78, 84, 89, 92, 94, 95, 96], label: 'perf uplift' },
     stack: ['Next.js', 'React', 'Supabase', 'Postgres', 'TailwindCSS', 'Resend', 'Vercel'],
     scope: [
       'Custom headless CMS',
@@ -41,6 +43,8 @@ const projects = [
       { value: '0%',   label: 'Commission' },
       { value: '32',   label: 'Operators' },
     ],
+    ring: { pct: 82, label: 'SEO SCORE' },
+    trend: { points: [22, 48, 95, 140, 188, 230, 275, 310, 340, 370, 390, 420], label: 'organic sessions' },
     stack: ['Next.js', 'Supabase', 'Postgres + RLS', 'TailwindCSS', 'Algolia', 'Vercel'],
     scope: [
       'Operator onboarding flow',
@@ -67,6 +71,8 @@ const projects = [
       { value: '12',  label: 'SKUs launched' },
       { value: '100%', label: 'Hand-made' },
     ],
+    ring: { pct: 100, label: 'CRAFTED' },
+    trend: { points: [0, 0, 1, 2, 4, 6, 9, 11, 14, 17, 21, 24], label: 'orders · launch mo' },
     stack: ['Next.js', 'Stripe', 'Supabase', 'Sanity CMS', 'TailwindCSS', 'Vercel'],
     scope: [
       'Brand system + voice',
@@ -93,6 +99,8 @@ const projects = [
       { value: '<1s', label: 'Largest paint' },
       { value: '4',   label: 'Drop gates' },
     ],
+    ring: { pct: 92, label: 'ENGAGEMENT' },
+    trend: { points: [45, 52, 61, 74, 82, 88, 95, 108, 115, 120, 124, 128], label: 'avg session sec' },
     stack: ['Next.js', 'GSAP', 'ScrollTrigger', 'Shopify Storefront API', 'Framer Motion', 'Vercel'],
     scope: [
       'Headless commerce integration',
@@ -119,6 +127,8 @@ const projects = [
       { value: '4-step', label: 'Chain' },
       { value: 'JSX',  label: 'Clean export' },
     ],
+    ring: { pct: 78, label: 'QUALITY' },
+    trend: { points: [28, 36, 44, 50, 58, 63, 68, 71, 74, 76, 77, 78], label: 'output score' },
     stack: ['Next.js', 'Claude API', 'Vercel AI SDK', 'Streaming', 'Babel runtime', 'TypeScript'],
     scope: [
       'Multi-step prompt chain',
