@@ -3,6 +3,7 @@ import { MessageCircle } from 'lucide-react';
 import { Analytics } from '@vercel/analytics/react';
 
 import Cursor from './components/Cursor';
+import Shapes from './components/Shapes';
 import Header from './components/Header';
 
 import HomePage    from './pages/HomePage';
@@ -31,8 +32,9 @@ export default function App() {
 
   return (
     <>
-      {/* ── Background ── */}
+      {/* ── Background + floating orbs ── */}
       <div className="gradient-bg" />
+      <Shapes />
       <Cursor />
 
       {/* ── Progress bar ── */}
