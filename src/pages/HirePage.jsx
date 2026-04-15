@@ -12,11 +12,9 @@ export default function HirePage() {
           work with me
         </p>
         <h1
-          className="display glitch"
-          data-text="START YOUR PROJECT"
+          className="display"
           style={{
-            color: 'var(--neon-green)',
-            textShadow: '0 0 60px rgba(74,222,128,0.3)',
+            color: 'var(--text)',
             textAlign: 'center',
             fontSize: 'clamp(2rem, 6vw, 4.5rem)',
             lineHeight: 1,

@@ -132,7 +132,7 @@ export default function PortfolioPage() {
         </p>
         <h1 className="display" style={{ color: 'var(--text)', textAlign: 'center', lineHeight: 1, marginBottom: '1.25rem' }}>
           THINGS<br />
-          <span style={{ color: 'var(--neon-green)', textShadow: '0 0 60px rgba(74,222,128,0.3)' }}>WE SHIPPED.</span>
+          <span style={{ color: 'var(--neon-green)' }}>WE SHIPPED.</span>
         </h1>
         <p className="body" style={{ textAlign: 'center', maxWidth: 480, margin: '0 auto', opacity: 0.6 }}>
           Five projects. Real constraints. Zero lorem ipsum. Built to perform, measured to prove it.
@@ -149,7 +149,7 @@ export default function PortfolioPage() {
         <p className="mono" style={{ color: 'var(--text-dim)', fontSize: '0.8rem', textAlign: 'center', marginBottom: '1.5rem' }}>
           Want results like these?
         </p>
-        <p className="display" style={{ fontSize: 'clamp(2rem, 6vw, 4.5rem)', textAlign: 'center', color: 'var(--neon-green)', textShadow: '0 0 50px rgba(74,222,128,0.25)' }}>
+        <p className="display" style={{ fontSize: 'clamp(2rem, 6vw, 4.5rem)', textAlign: 'center', color: 'var(--neon-green)' }}>
           LET'S TALK.
         </p>
       </div>

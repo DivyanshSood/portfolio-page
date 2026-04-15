@@ -23,7 +23,7 @@ const Skills = () => (
           <p className="mono" style={{ color: group.color, fontSize: '0.7rem', marginBottom: '0.75rem', letterSpacing: '0.12em', textTransform: 'uppercase' }}>{group.label}</p>
           <div className="skills-pills">
             {group.items.map((item, j) => (
-              <span key={j} className="skill-pill" style={{ borderColor: group.color + '50', color: group.color, background: group.color + '0d' }}>{item}</span>
+              <span key={j} className="skill-pill" style={{ color: group.color, borderColor: group.color + '55', background: group.color + '18' }}>{item}</span>
             ))}
           </div>
         </div>

@@ -16,7 +16,7 @@ const Contact = () => {
   return (
     <div className="section-content" style={{ textAlign: 'center' }}>
       <Panel style={{ maxWidth: 640, margin: '0 auto', textAlign: 'left' }}>
-        <h2 className="display glitch" data-text="LET'S BUILD" style={{ color: 'var(--neon-green)', fontSize: 'clamp(2rem, 6vw, 4rem)', textShadow: '0 0 40px rgba(74,222,128,0.3)', marginBottom: '0.5rem', textAlign: 'center' }}>
+        <h2 className="display" style={{ color: 'var(--text)', fontSize: 'clamp(2rem, 6vw, 4rem)', marginBottom: '0.5rem', textAlign: 'center' }}>
           LET'S BUILD
         </h2>
         <p className="body" style={{ textAlign: 'center', marginBottom: '2rem' }}>
@@ -71,7 +71,7 @@ const Contact = () => {
           </form>
         )}
 
-        <div style={{ display: 'flex', gap: '0.75rem', justifyContent: 'center', flexWrap: 'wrap', marginTop: '1.5rem', paddingTop: '1.5rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+        <div style={{ display: 'flex', gap: '0.75rem', justifyContent: 'center', flexWrap: 'wrap', marginTop: '1.5rem', paddingTop: '1.5rem', borderTop: '1px solid rgba(255,255,255,0.45)' }}>
           <a href="mailto:sood.divyansh007@gmail.com" className="btn" style={{ fontSize: '0.8rem', padding: '0.6rem 1.2rem' }}><Mail size={13} /> EMAIL</a>
           <a href="https://wa.me/919816091875" target="_blank" rel="noreferrer" className="btn" style={{ borderColor: '#25D366', color: '#25D366', fontSize: '0.8rem', padding: '0.6rem 1.2rem' }}><MessageCircle size={13} /> WHATSAPP</a>
           <a href="https://github.com/divyanshsood" target="_blank" rel="noreferrer" className="btn" style={{ borderColor: 'var(--text-dim)', color: 'var(--text-dim)', fontSize: '0.8rem', padding: '0.6rem 1.2rem' }}><GitFork size={13} /> GITHUB</a>

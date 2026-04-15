@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { MessageCircle } from 'lucide-react';
+import { Analytics } from '@vercel/analytics/react';
 
-import MatrixRain from './components/MatrixRain';
-import Cursor    from './components/Cursor';
-import Shapes    from './components/Shapes';
-import Header    from './components/Header';
+import Cursor from './components/Cursor';
+import Header from './components/Header';
 
 import HomePage    from './pages/HomePage';
 import PortfolioPage from './pages/PortfolioPage';
@@ -32,11 +31,8 @@ export default function App() {
 
   return (
     <>
-      {/* ── Persistent atmosphere ── */}
+      {/* ── Background ── */}
       <div className="gradient-bg" />
-      <div className="noise-overlay" />
-      <MatrixRain />
-      <Shapes />
       <Cursor />
 
       {/* ── Progress bar ── */}
@@ -55,6 +51,8 @@ export default function App() {
       {page === 'home'      && <HomePage />}
       {page === 'portfolio' && <PortfolioPage />}
       {page === 'hire'      && <HirePage />}
+
+      <Analytics />
 
       {/* ── WhatsApp FAB ── */}
       <a
